@@ -1,0 +1,172 @@
+﻿<style>
+  img{
+  max-width:400px;
+  }
+</style>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>  </h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title"><?php echo $servicedata['service_name']; ?></h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+			 <div class="col-md-6">
+			
+			  <center><a href="<?php echo $servicedata['from_image']; ?>" download>Download <alt="W3Schools"></a>
+ </br>
+			   <a href="<?php echo $servicedata['from_image']; ?>" download>
+      
+	  <img src="<?php echo $servicedata['from_image'] ?>" alt="Download">
+    </a>
+</br></br>
+ <p><?php echo $servicedata['download'] ?></p>
+</br>
+</br> 
+
+</div>
+
+<div class="col-md-6">
+
+
+		<center>Right click Save as Image
+		</br>
+<style>
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.image-previewer {
+			height: 540px;
+			width: 350px;
+			display: flex;
+			border-radius: 10px;
+			border: 1px solid lightgrey;
+		}
+</style>
+
+				<center>	
+<label for="cropzee-input" class="image-previewer" data-cropzee="cropzee-input">
+	<input id="cropzee-input" type="file" accept="image/*">
+</label>
+				Right click Save as Image
+	
+</center>
+ </div>
+<center>
+<?php 
+ $se_id = $this->uri->segment(3);
+ $log_id = $this->session->userdata('id');
+ $sql="Select * from payments where customer_id = $log_id order by id desc limit 1 ";
+    $query = $this->db->query($sql);
+    $data =  $query->row();
+    if(!empty($data)){
+      if($data->service_status == 'UsedPaid'){ ?>
+     <form action="<?php echo base_url('service/check');?>" method="post">
+          <input type="" name="id" value="<?php echo $servicedata['id'];?>" style="display: none;">
+          <input type="" name="customer_id" value="<?php echo $log_id;?>" style="display: none;">
+          <button type="submit" class="btn btn-sm buy_now btn-primary">Rs <?php echo $servicedata['service_payment']; ?>  Pay</button>
+        </form> 
+		 <?php } } else{ ?>
+		  <form action="<?php echo base_url('service/check');?>" method="post">
+          <input type="" name="id" value="<?php echo $servicedata['id'];?>" style="display: none;">
+          <input type="" name="customer_id" value="<?php echo $log_id;?>" style="display: none;">
+          <button type="submit" class="btn btn-sm buy_now btn-primary">Rs <?php echo $servicedata['service_payment']; ?>  Pay</button>
+        </form> 
+ <?php }?>
+<p><?php echo $servicedata['upload'] ?></p>
+</br> 
+<?php 
+ $customer_id =  $this->uri->segment(4);
+ $userID = $this->session->userdata('id');
+ $distID = $this->session->userdata('dist_id');
+ $sql="Select * from payments where customer_id = $userID order by id desc limit 1 ";    
+    $query = $this->db->query($sql);
+    $data =  $query->row();
+    if(!empty($data)){
+      if($data->service_status == 'Paid'){ ?>
+			        <form action="http://localhost/nalavariyam.com/app/reports/paymentupload" method="post" enctype="multipart/form-data" class="form-horizontal">
+					 <div class="form-group row">
+					          <label for="photo" class="col-sm-4 col-form-label"><span style="color:red"></span>Upload the Application</label>
+                      <div class="col-sm-8">
+                          <input required="requiered" accept="application/pdf,image/png, image/jpeg" name="photo" type="file" id="photo" onchange="loadFile(event)">
+                      </div>
+				          </div>
+      <input type="hidden" name="customer_id" value="<?php echo $customer_id; ?>"/>
+      <input type="hidden" name="ser_id" value="<?php echo $servicedata['id']; ?>"/>
+        <input type="submit" name="submit"  value="Next" class="btn btn-sm btn-primary"></input> 
+      <?php } } else{ ?>
+       
+     <?php }?>
+ </center>
+                  </form>
+				  </center>
+                  </div>
+				  
+				  
+             
+			 
+				  
+				  
+				  
+              </div>
+            </div>
+          </div>
+         </div>
+       </div>
+   <script type="text/javascript">
+    $(document).ready(function() {
+      $("#Customer").addClass('menu-open');
+      $("#Customers").addClass('active');
+      $("#CustomerView").addClass('active');
+    });
+  </script>
+  <script>
+		$(document).ready(function(){
+			$("#cropzee-input").cropzee({startSize: [85, 85, '%'],});
+		});
+	</script>
+  
+<script src="<?php echo base_url('assets/js/cropzee.js') ?>"></script>
+
+	

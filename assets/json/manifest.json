@@ -1,0 +1,42 @@
+{
+  "name": "NalaVariyam",
+  "short_name": "NalaVariyam",
+  "icons": [
+    {
+      "src": "https://nalavariyam.org/org/images/app_icon_48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://nalavariyam.org/org/images/app_icon_72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "https://nalavariyam.org/org/images/app_icon_96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "https://nalavariyam.org/org/images/app_icon_144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "https://nalavariyam.org/org/images/app_icon_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://nalavariyam.org/org/images/app_icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "prefer_related_applications": false,
+  "start_url": "https://nalavariyam.org/org/application/views/auth/login.html",
+  "gcm_sender_id": "103953800507",
+  "display": "minimal-ui",
+  "background_color": "#FF9800",
+  "theme_color": "#FF9800"
+}
